@@ -1,0 +1,101 @@
+INSERT INTO customers(first_name, last_name, email, city, registration_date)
+VALUES
+    ('Marcin', 'Korzeniewski', 'makocchigod@github.com', 'Warsaw', '2026-Jan-3'),
+    ('Jan', 'Nowak', 'jannowak02@gmail.com', 'Cracow', '2026-Jun-20'),
+    ('Anna', 'Kowalska', 'annakow@gmail.com', 'Warsaw', '2026-Apr-4'),
+    ('Maria', 'Kleszcz', 'maria123@gmail.com', 'Lodz', '2026-Aug-27'),
+    ('Kacper', 'Nowaczyk', 'kacpnowacz@wp.pl', 'Poznan', '2025-Oct-6'),
+    ('Bartosz', 'Malczyk', 'bartekkk234@gmail.com', 'Gdansk', '2026-Jan-19'),
+    ('Klaudia', 'Piatek', 'klaudipiatek@gmail.com', 'Poznan', '2025-Dec-30'),
+    ('Anita', 'Wata', 'ani_wat_prac@wp.pl', 'Cracow', '2026-Apr-28'),
+    ('Mateusz', 'Lubaszczyk', 'matigitlubasz0934@gmail.com', 'Lodz', '2026-May-17'),
+    ('Piotr', 'Krezel', 'piotrek_kregiel@wp.pl', 'Warsaw', '2025-Nov-29');
+
+INSERT INTO products(product_name, product_producer, price)
+VALUES
+    ('Mouse', 'Logitech', 120),
+    ('Mouse', 'Ryzen', 150),
+    ('Mouse', 'Pulsar', 200),
+    ('Keyboard', 'Shark Attack', 50),
+    ('Keyboard', 'Ryzen', 230),
+    ('Monitor', 'Zowie', 550),
+    ('Monitor', 'Asus', 280),
+    ('Monitor', 'Asus', 350),
+    ('Camera', 'Creative', 40),
+    ('Camera', 'Logitech', 60);
+
+INSERT INTO employees(first_name, last_name, department)
+VALUES
+    ('Zuzanna', 'Krzan', 'Marketing'),
+    ('Izabela', 'Wrzosowska', 'IT'),
+    ('Mariusz', 'Dziwisz', 'IT'),
+    ('Tomasz', 'Bibelot', 'Marketing'),
+    ('Piotr', 'Taboret', 'Sales'),
+    ('Paweł', 'Jacynt', 'Sales'),
+    ('Weronika', 'Woźniak', 'Sales'),
+    ('Aleksandra', 'Belka', 'Management');
+
+INSERT INTO orders(employee_id, customer_id, order_date)
+VALUES
+    (2, 1, '2026-01-08'),
+    (5, 3, '2026-01-15'),
+    (1, 2, '2026-01-22'),
+    (7, 5, '2026-02-03'),
+    (3, 1, '2026-02-17'),
+    (8, 4, '2026-02-25'),
+    (6, 7, '2026-03-04'),
+    (2, 6, '2026-03-12'),
+    (4, 2, '2026-03-28'),
+    (5, 9, '2026-04-06'),
+    (1, 3, '2026-04-19'),
+    (7, 1, '2026-04-27'),
+    (3, 10, '2026-05-08'),
+    (6, 5, '2026-05-21'),
+    (2, 8, '2026-06-02'),
+    (5, 2, '2026-06-14'),
+    (8, 6, '2026-07-01'),
+    (7, 9, '2026-07-18'),
+    (3, 4, '2026-08-03'),
+    (1, 1, '2026-08-20');
+
+INSERT INTO order_items(order_id, product_id, quantity)
+VALUES
+    (1, 1, 2),
+    (1, 6, 1),
+    (2, 3, 1),
+    (2, 5, 2),
+    (3, 2, 1),
+    (4, 7, 2),
+    (4, 9, 3),
+    (5, 1, 1),
+    (5, 4, 2),
+    (5, 10, 1),
+    (6, 6, 1),
+    (6, 8, 1),
+    (7, 3, 2),
+    (8, 2, 1),
+    (8, 6, 2),
+    (9, 5, 1),
+    (9, 9, 2),
+    (10, 1, 3),
+    (10, 7, 1),
+    (11, 4, 2),
+    (11, 10, 2),
+    (12, 3, 1),
+    (12, 6, 1),
+    (13, 8, 3),
+    (14, 2, 2),
+    (14, 5, 1),
+    (15, 1, 1),
+    (15, 9, 2),
+    (16, 6, 1),
+    (16, 7, 1),
+    (16, 10, 1),
+    (17, 3, 2),
+    (17, 8, 1),
+    (18, 2, 3),
+    (19, 5, 2),
+    (19, 6, 1),
+    (20, 1, 2),
+    (20, 4, 1),
+    (20, 9, 1);

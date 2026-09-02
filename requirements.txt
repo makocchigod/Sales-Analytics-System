@@ -1,0 +1,4 @@
+pandas
+matplotlib
+psycopg
+psycopg2-binary
