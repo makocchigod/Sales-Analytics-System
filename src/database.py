@@ -26,9 +26,26 @@ def add_customer(first_name, last_name, email, city, registration_date):
         cursor.close()
         connection.close()
 
+
+
+
 def show_table(table_name):
     if table_name.lower() not in ('customers', 'orders', 'order_items', 'employees', 'products'):
         raise Exception("Table does not exist")
+    if table_name.lower() == 'customers':
+        customers_info()
+    elif table_name.lower() == 'employees':
+        employees_info()
+    elif table_name.lower() == 'products':
+        products_info()
+    elif table_name.lower() == 'orders':
+        orders_info()
+    elif table_name.lower() == 'order_items':
+        order_items_info()
+    else:
+        raise Exception("Table does not exist")
+
+
 
 def customers_info():
     connection = connect_to_database()
@@ -38,6 +55,66 @@ def customers_info():
         data = cursor.fetchall()
         df = pd.DataFrame(data, columns=('customer_id', 'first_name', 'last_name', 'email', 'city', 'registration_date'))
         df.set_index('customer_id', inplace=True)
+        print(df)
+    except Exception as e:
+        raise e
+    finally:
+        cursor.close()
+        connection.close()
+
+def employees_info():
+    connection = connect_to_database()
+    cursor = connection.cursor()
+    try:
+        cursor.execute("""SELECT * FROM employees""")
+        data = cursor.fetchall()
+        df = pd.DataFrame(data, columns=('employee_id', 'first_name', 'last_name', 'department'))
+        df.set_index('employee_id', inplace=True)
+        print(df)
+    except Exception as e:
+        raise e
+    finally:
+        cursor.close()
+        connection.close()
+
+def products_info():
+    connection = connect_to_database()
+    cursor = connection.cursor()
+    try:
+        cursor.execute("""SELECT * FROM products""")
+        data = cursor.fetchall()
+        df = pd.DataFrame(data, columns=('product_id', 'product_name', 'producer_name', 'price'))
+        df.set_index('product_id', inplace=True)
+        print(df)
+    except Exception as e:
+        raise e
+    finally:
+        cursor.close()
+        connection.close()
+
+def orders_info():
+    connection = connect_to_database()
+    cursor = connection.cursor()
+    try:
+        cursor.execute("""SELECT * FROM orders""")
+        data = cursor.fetchall()
+        df = pd.DataFrame(data, columns=('order_id', 'employee_id', 'customer_id', 'order_date'))
+        df.set_index('order_id', inplace=True)
+        print(df)
+    except Exception as e:
+        raise e
+    finally:
+        cursor.close()
+        connection.close()
+
+def order_items_info():
+    connection = connect_to_database()
+    cursor = connection.cursor()
+    try:
+        cursor.execute("""SELECT * FROM order_items""")
+        data = cursor.fetchall()
+        df = pd.DataFrame(data, columns=('id', 'order_id', 'product_id', 'quantity'))
+        df.set_index('id', inplace=True)
         print(df)
     except Exception as e:
         raise e
