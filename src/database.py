@@ -2,6 +2,8 @@ import pandas as pd
 import os
 from dotenv import load_dotenv
 import psycopg2
+import re
+
 load_dotenv()
 def connect_to_database():
     connection = psycopg2.connect(
@@ -12,6 +14,9 @@ def connect_to_database():
         port=os.getenv("POSTGRES_PORT")
     )
     return connection
+
+
+
 def add_customer(first_name, last_name, email, city, registration_date):
     connection = connect_to_database()
     cursor = connection.cursor()
@@ -26,8 +31,66 @@ def add_customer(first_name, last_name, email, city, registration_date):
         cursor.close()
         connection.close()
 
+def add_product(product_name, producer_name, price):
+    connection = connect_to_database()
+    cursor = connection.cursor()
+    try:
+        cursor.execute("""INSERT INTO products (product_name, producer_name, price)
+                   VALUES (%s, %s, %s)""",(product_name, producer_name, price))
+        connection.commit()
+        print("Product added successfully")
+    except Exception as e:
+        raise e
+    finally:
+        cursor.close()
+        connection.close()
+
+def add_employee(first_name, last_name, department):
+    connection = connect_to_database()
+    cursor = connection.cursor()
+    try:
+        cursor.execute("""INSERT INTO employees (first_name, last_name, department)
+                   VALUES (%s, %s, %s)""",(first_name, last_name, department))
+        connection.commit()
+        print("Employee added successfully")
+    except Exception as e:
+        raise e
+    finally:
+        cursor.close()
+        connection.close()
+
+def add_order(employee_id, customer_id, order_date):
+    connection = connect_to_database()
+    cursor = connection.cursor()
+    try:
+        cursor.execute("""INSERT INTO orders (employee_id, customer_id, order_date)
+                   VALUES (%s, %s, %s)""",(employee_id, customer_id, order_date))
+        connection.commit()
+        print("Order added successfully")
+    except Exception as e:
+        raise e
+    finally:
+        cursor.close()
+        connection.close()
+
+def add_order_item(order_id, product_id, quantity):
+    connection = connect_to_database()
+    cursor = connection.cursor()
+    try:
+        cursor.execute("""INSERT INTO orders (order_id, product_id, quantity)
+                   VALUES (%s, %s, %s)""",(order_id, product_id, quantity))
+        connection.commit()
+        print("Items added successfully")
+    except Exception as e:
+        raise e
+    finally:
+        cursor.close()
+        connection.close()
 
 
+
+
+    #Displaying tables
 
 def show_table(table_name):
     if table_name.lower() not in ('customers', 'orders', 'order_items', 'employees', 'products'):
@@ -44,6 +107,9 @@ def show_table(table_name):
         order_items_info()
     else:
         raise Exception("Table does not exist")
+
+    def add_to_database(database):
+        print('d')
 
 
 
