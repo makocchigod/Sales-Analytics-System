@@ -22,7 +22,7 @@ CREATE TABLE employees(
 );
 
 CREATE TABLE orders(
-    order_id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     employee_id INTEGER REFERENCES employees(id),
     customer_id INTEGER REFERENCES customers(id),
     order_date DATE NOT NULL
@@ -30,7 +30,7 @@ CREATE TABLE orders(
 
 CREATE TABLE order_items(
     id SERIAL PRIMARY KEY,
-    order_id INTEGER REFERENCES orders(order_id),
+    order_id INTEGER REFERENCES orders(id),
     product_id INTEGER REFERENCES products(id),
     quantity INTEGER NOT NULL CHECK (quantity > 0)
 );

@@ -5,8 +5,8 @@ def test_connection():
     try:
         cursor.execute("SELECT 1")
         print("Connected to database")
-    except Exception as e:
-        raise e
+    except Exception:
+        raise
     finally:
         cursor.close()
         connection.close()
