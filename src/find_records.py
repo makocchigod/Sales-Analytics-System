@@ -56,8 +56,8 @@ def find_records():
                     print(df)
                     print()
                     continue
-                except Exception:
-                    raise "Issue occurred while searching or displaying data"
+                except Exception as e:
+                    print(f"Issue occurred while searching or displaying data, {e}")
                 finally:
                     cursor.close()
                     connection.close()
@@ -128,8 +128,8 @@ def find_records():
                     print(df)
                     print()
                     continue
-                except Exception:
-                    raise "Issue occurred while searching or displaying data"
+                except Exception as e:
+                    print(f"Issue occurred while searching or displaying data, {e}")
                 finally:
                     cursor.close()
                     connection.close()
@@ -187,8 +187,8 @@ def find_records():
                     print(df)
                     print()
                     continue
-                except Exception:
-                    raise "Issue occurred while searching or displaying data"
+                except Exception as e:
+                    print(f"Issue occurred while searching or displaying data, {e}")
                 finally:
                     cursor.close()
                     connection.close()

@@ -1,6 +1,19 @@
 from database import get_cursor
 import pandas as pd
 from charts import *
+def get_stats():
+    choice = input("From which table you want the statistics? ")
+    if choice.lower() == 'products':
+        product_stats()
+    elif choice.lower() == 'employees':
+        employee_stats()
+    elif choice.lower() == 'customers':
+        customer_stats()
+    else:
+        print(f"Table {choice} does not exist")
+
+
+
 
 def customer_stats():
     connection, cursor = get_cursor()
